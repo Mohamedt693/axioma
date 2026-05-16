@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Axioma Studio
+
+A high-end modern architectural portfolio and consultation platform designed to combine uncompromising aesthetic beauty with structural digital integrity. This application provides immersive 3D spatial showcases and a highly structured, seamless multi-step consultation funnel for architectural clients.
+
+## Tech Stack & Architecture
+
+### Core Framework
+* **Next.js 16 (App Router)**: Utilizing advanced hybrid rendering, structured layouts, and optimized client-side routing.
+* **React 19 & TypeScript**: Strict type safety, structured interfaces, and performance optimizations leveraging modern concurrent rendering features.
+
+### Content Management & Real-time Data
+* **Sanity CMS (`next-sanity`)**: Headless content management providing schema configurations for architectural portfolios, dynamic media structures, and real-time content delivery.
+* **Sanity Image URL Builder**: Dynamic optimization, resizing, and rendering of architectural imagery.
+
+### Immersive 3D Graphics
+* **Three.js / React Three Fiber (`@react-three/fiber`)**: Declarative integration for rendering heavy-performance 3D components.
+* **React Three Drei (`@react-three/drei`)**: Functional helpers and abstractions for advanced camera setups, shaders, and lightweight 3D architectural model views.
+
+### Form Handling & Business Logic
+* **Formik**: Structural multi-step form management ensuring strict state retention across client identity, scope, and vision steps.
+* **Yup**: Robust, asynchronous schema validation layer ensuring precise error mapping for complex geographic, alphanumeric, and dimensional spatial inputs.
+* **EmailJS Browser**: Secure, decoupled client-side notification routing to dispatch consolidated client architectural visions instantly upon submission.
+* **React Phone Input 2**: Standardized and interactive telephone metadata validation across global regional formats.
+
+### Interactive Components & Motion
+* **Swiper**: Fluid, hardware-accelerated touch-responsive touch navigation for digital portfolios and interactive image carousels.
+* **Framer Motion**: Smooth, low-overhead animation states, declarative layout updates, and context transitions during active step changes.
+* **React Icons**: Modular integration of performance-optimized scalable vector graphics.
+
+### Styling & Base Infrastructure
+* **Tailwind CSS v4 & PostCSS**: Native custom utility execution, strict minimal design language implementation, and high-performance cross-device layout rendering.
+* **Styled Components**: Scoped, component-level dynamic design structures integrated cleanly within layout variations.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+Ensure you have Node.js installed on your local system before proceeding with dependency allocation.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the digital repository:
+    ```bash
+    git clone [https://github.com/Mohamedt693/axioma.git]
+    cd axioma
+2. Allocate system dependencies:
+    npm install
+3. Configure Environment Variables:
+    Create a `.env.local` file in the root directory and establish your secure client tokens:
+    ```env
+    NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+    NEXT_PUBLIC_SANITY_DATASET=production
+    NEXT_PUBLIC_TEMPLATE_ID=your_emailjs_template_id
+    NEXT_PUBLIC_SERVICE_ID=your_emailjs_service_id
+    NEXT_PUBLIC_PUBLIC_KEY=your_emailjs_public_key
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Scripts Execution - Development Server: Run a localized real-time environment with active hot-reloading:
+    npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Production Compilation**: Optimize and build the application architecture for deployment:
+    ```bash
+    npm run build
 
-## Learn More
+Local Staging: Initialize the locally compiled production application:
+    npm run start
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **Code Verification**: Audit the application structural codebase for compliance and performance standards:
+    ```bash
+    npm run lint

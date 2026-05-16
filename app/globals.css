@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+button {
+  cursor: pointer;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Axioma Phone Input Custom Styling */
+
+.axioma-phone-input .react-tel-input .form-control {
+  font-family: inherit; /* عشان يلتزم بخط Geist اللي إحنا مستخدمينه */
+  padding-left: 48px !important; /* مساحة للعلم */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.axioma-phone-input .react-tel-input .flag-dropdown {
+  background-color: transparent !important;
+  border: none !important;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.axioma-phone-input .react-tel-input .selected-flag {
+  background-color: transparent !important;
+  padding: 0 !important;
+  width: 40px !important;
 }
+
+/* ستايل القائمة المنسدلة للدول عشان متكونش بيضاء فاقعة */
+.axioma-phone-input .react-tel-input .country-list {
+  background-color: #09090b !important; /* لون zinc-950 */
+  color: #a1a1aa !important; /* لون zinc-400 */
+  border: 1px solid #27272a !important; /* لون zinc-800 */
+  border-radius: 0 !important;
+  margin-top: 10px;
+}
+
+.axioma-phone-input .react-tel-input .country-list .country:hover {
+  background-color: #18181b !important; /* لون zinc-900 */
+  color: white !important;
+}
+
+.axioma-phone-input .react-tel-input .country-list .country.highlight {
+  background-color: #18181b !important;
+}
+
