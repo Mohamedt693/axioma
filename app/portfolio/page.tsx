@@ -3,7 +3,7 @@ import PortfolioClient from '@/components/client/PortfolioClient';
 import type { Project } from '@/types/project';
 import { Metadata } from 'next';
 
-
+export const revalidate = 1800;
 const PROJECTS_QUERY = `*[_type == "project"]{
   _id,
   title,

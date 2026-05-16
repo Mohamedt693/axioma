@@ -35,6 +35,8 @@ interface PortfolioClientProps {
 export default function PortfolioClient({ projects }: PortfolioClientProps) {
     const [selectedModel, setSelectedModel] = useState<string | null>(null);
 
+    
+
     return (
         <div className="flex-1 w-full flex items-center px-6 md:px-20 relative">
             <div className="w-full animate-in fade-in duration-500">
