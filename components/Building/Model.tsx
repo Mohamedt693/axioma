@@ -1,5 +1,6 @@
 "use client"
-import { useGLTF } from '@react-three/drei'
+import { useLoader } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { ThreeElements } from '@react-three/fiber'
 
 interface ModelProps extends Partial<ThreeElements['group']> {
@@ -7,11 +8,13 @@ interface ModelProps extends Partial<ThreeElements['group']> {
 }
 
 export function Model({ modelPath, ...props }: ModelProps) {
-  const { scene } = useGLTF(modelPath)
+  const gltf = useLoader(GLTFLoader, modelPath, (loader) => {
+    loader.setCrossOrigin('anonymous')
+  })
 
   return (
     <group {...props} dispose={null}>
-      <primitive object={scene} />
+      <primitive object={gltf.scene} />
     </group>
   )
 }

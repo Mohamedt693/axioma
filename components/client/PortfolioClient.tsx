@@ -3,22 +3,30 @@
 import { useState, Suspense } from 'react';
 import Image from 'next/image';
 
-// R3F + DREI
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Stage, PerspectiveCamera } from '@react-three/drei';
+import { OrbitControls, Stage, PerspectiveCamera, Html, useProgress } from '@react-three/drei';
 import { Model } from '@/components/Building/Model';
 
-// Types
 import type { Project } from '@/types/project';
 
-// Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Mousewheel, Pagination } from 'swiper/modules';
 
-// Swiper Styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
+
+function CanvasLoader() {
+    const { progress } = useProgress();
+    return (
+        <Html center>
+            <div className="flex flex-col items-center justify-center bg-black text-white font-light tracking-[0.3em] text-[11px] uppercase">
+                <span>Loading Architecture</span>
+                <span className="mt-2 text-[#8C8279] text-[10px]">{Math.round(progress)}%</span>
+            </div>
+        </Html>
+    );
+}
 
 interface PortfolioClientProps {
     projects: Project[];
@@ -75,7 +83,6 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                 </Swiper>
             </div>
 
-            {/* 3D Model - Modal */}
             {selectedModel && (
                 <div className="fixed inset-0 z-100 bg-black flex flex-col animate-in fade-in duration-500">
                     <button 
@@ -88,7 +95,7 @@ export default function PortfolioClient({ projects }: PortfolioClientProps) {
                     <div className="flex-1 w-full h-full cursor-grab active:cursor-grabbing">
                         <Canvas shadows dpr={[1, 2]}>
                             <PerspectiveCamera makeDefault position={[25, 25, 25]} fov={30} />
-                            <Suspense fallback={null}>
+                            <Suspense fallback={<CanvasLoader />}>
                                 <Stage environment="apartment" intensity={0.4} shadows={{ type: 'contact', opacity: 0.1, blur: 4 }}>
                                     <Model modelPath={selectedModel} scale={0.01} />
                                 </Stage>
